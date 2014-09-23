@@ -15,4 +15,3 @@ before_script:
 script:
   - phpspec run -f pretty --no-interaction
   - behat --strict
-  

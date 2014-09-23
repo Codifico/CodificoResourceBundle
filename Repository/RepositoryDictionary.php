@@ -2,9 +2,6 @@
 
 namespace Codifico\ResourceBundle\Repository;
 
-use Happyr\DoctrineSpecification\Result\Modifier;
-use Happyr\DoctrineSpecification\Specification;
-
 trait RepositoryDictionary
 {
     public abstract function getClassName();

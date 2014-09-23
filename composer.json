@@ -2,6 +2,9 @@
   "name": "codifico/resource-bundle",
   "description": "Bundle provides repository tools",
   "type": "symfony-bundle",
+  "keywords": ["codifico", "doctrine", "bdd", "repository", "service"],
+  "homepage": "http://codifico.pl",
+  "license": "MIT",
   "require": {
     "symfony/symfony": "~2.3",
     "sensio/framework-extra-bundle": "2.3.*"
