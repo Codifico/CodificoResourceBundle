@@ -7,6 +7,8 @@ use Happyr\DoctrineSpecification\Specification;
 
 trait RepositoryDictionary
 {
+    public abstract function getClassName();
+
     public function create(array $arguments = null)
     {
         if (null === $arguments) {

@@ -31,23 +31,7 @@ class InMemoryRepository implements EntityRepositoryInterface {
 
     public function findOneBy(array $criteria)
     {
-        foreach ($this->collection as $element) {
-            $match = true;
-            foreach ($criteria as $property => $value) {
-                $method = 'get' . ucfirst($property);
-                $match = $element->$method() === $value;
-
-                if (!$match) {
-                    break;
-                }
-            }
-
-            if ($match) {
-                return $element;
-            }
-        }
-
-        return null;
+        return $this->findBy($criteria)->first();
     }
 
     public function find($id)
@@ -68,7 +52,7 @@ class InMemoryRepository implements EntityRepositoryInterface {
         foreach ($this->collection as $element) {
             $match = true;
             foreach ($criteria as $property => $value) {
-                $method = 'get' . ucfirst($property);
+                $method = $this->getMethodName($property);
                 $match = $element->$method() === $value;
 
                 if (!$match) {
@@ -99,10 +83,8 @@ class InMemoryRepository implements EntityRepositoryInterface {
 
         $property = key($orderBy);
         $order = $orderBy[$property];
-        $method = 'get' . ucfirst($property);
 
         $iterator = $collection->getIterator();
-
         $data = iterator_to_array($iterator);
 
         if ($order !== 'asc') {
@@ -119,5 +101,10 @@ class InMemoryRepository implements EntityRepositoryInterface {
         $data = $collection->slice($offset, $limit);
 
         return new ArrayCollection($data);
+    }
+
+    protected function getMethodName($property)
+    {
+        return 'get' . ucfirst($property);
     }
 }
