@@ -112,7 +112,7 @@ class InMemoryRepository implements EntityRepositoryInterface {
     {
     }
 
-    public function createQueryBuilder()
+    public function createQueryBuilder($alias)
     {
     }
 }

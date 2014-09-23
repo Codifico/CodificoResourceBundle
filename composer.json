@@ -1,5 +1,6 @@
 {
   "name": "codifico/resource-bundle",
+  "description": "Bundle provides repository tools",
   "type": "symfony-bundle",
   "require": {
     "symfony/symfony": "~2.3",
