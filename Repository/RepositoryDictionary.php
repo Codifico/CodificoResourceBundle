@@ -8,6 +8,8 @@ use Happyr\DoctrineSpecification\Specification;
 trait RepositoryDictionary
 {
     public abstract function getClassName();
+    public abstract function getEntityManager();
+    public abstract function createQueryBuilder();
 
     public function create(array $arguments = null)
     {
