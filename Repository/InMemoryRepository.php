@@ -107,4 +107,12 @@ class InMemoryRepository implements EntityRepositoryInterface {
     {
         return 'get' . ucfirst($property);
     }
+
+    public function getEntityManager()
+    {
+    }
+
+    public function createQueryBuilder()
+    {
+    }
 }
