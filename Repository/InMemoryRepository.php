@@ -4,8 +4,6 @@ namespace Codifico\ResourceBundle\Repository;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping\ClassMetadata;
-use Happyr\DoctrineSpecification\Specification;
-use Happyr\DoctrineSpecification\Result\Modifier;
 
 class InMemoryRepository implements EntityRepositoryInterface {
     use RepositoryDictionary;
@@ -96,6 +94,10 @@ class InMemoryRepository implements EntityRepositoryInterface {
         return new ArrayCollection($data);
     }
 
+    /**
+     * @param |null $limit
+     * @param integer $offset
+     */
     protected function applyLimitAndOffset(ArrayCollection $collection, $limit, $offset)
     {
         $data = $collection->slice($offset, $limit);

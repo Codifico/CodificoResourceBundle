@@ -6,6 +6,10 @@ trait RepositoryDictionary
 {
     public abstract function getClassName();
     public abstract function getEntityManager();
+
+    /**
+     * @param string $alias
+     */
     public abstract function createQueryBuilder($alias);
 
     public function create(array $arguments = null)
