@@ -29,4 +29,4 @@ class RepositoryFactory implements BaseRepositoryFactory
 
         return $entityManager->getRepository($entityName);
     }
-} 
+}
