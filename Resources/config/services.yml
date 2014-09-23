@@ -1,0 +1,6 @@
+parameters:
+    codifico.resource.repository_factory.class: Codifico\ResourceBundle\Repository\RepositoryFactory
+
+services:
+    codifico.resource.repository_factory:
+        class: %codifico.resource.repository_factory.class%

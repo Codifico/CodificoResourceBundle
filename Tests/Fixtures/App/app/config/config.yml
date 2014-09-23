@@ -1,0 +1,41 @@
+framework:
+    secret:          Secret!
+    router:          { resource: "%kernel.root_dir%/config/routing.yml" }
+    form:            true
+    csrf_protection: true
+    default_locale:  en
+    translator:      { fallback: en }
+    profiler:        { only_exceptions: false }
+    test: ~
+    session:
+        storage_id: session.storage.filesystem
+
+doctrine:
+    dbal:
+        driver:   pdo_sqlite
+        host:     localhost
+        dbname:   codifico
+        user:     codifico_user
+        password: ''
+        charset:  UTF8
+        path: "%kernel.cache_dir%/data.db3"
+    orm:
+        auto_generate_proxy_classes: %kernel.debug%
+        auto_mapping: true
+
+codifico_resource:
+    entities:
+        test_entity:
+            class: Codifico\Test\ResourceDemoBundle\Entity\TestEntity
+            repository_class: Codifico\ResourceBundle\Repository\EntityRepository
+
+        test_entity_custom:
+            class: Codifico\Test\ResourceDemoBundle\Entity\TestEntity
+
+        test_entity_memory:
+            class: Codifico\Test\ResourceDemoBundle\Entity\TestEntity
+            factory_service: codifico.resource.repository_factory
+            factory_method: getRepository
+            repository_prefix: 'codifico.resource.repository.'
+            repository_class: Codifico\ResourceBundle\Repository\InMemoryRepository
+

@@ -1,0 +1,12 @@
+Codifico\Test\ResourceDemoBundle\Entity\TestEntity:
+    type: entity
+    repositoryClass: Codifico\Test\ResourceDemoBundle\Repository\TestEntityRepository
+    table: test_entity
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+            length: 100

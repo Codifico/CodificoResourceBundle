@@ -1,0 +1,18 @@
+default:
+    formatters:
+        pretty:
+            verbose: true
+            paths: false
+            snippets: false
+
+    suites:
+        CodificoResourceBundle:
+            type: symfony_bundle
+            contexts:
+                - FeatureContext
+            paths:
+                - features/
+    extensions:
+        Behat\Symfony2Extension\ServiceContainer\Symfony2Extension:
+            kernel:
+                path: Tests/Fixtures/App/app/AppKernel.php
